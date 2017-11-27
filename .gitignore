@@ -2,3 +2,5 @@
 personal_info.py
 *~
 __pycache__/
+.snakemake
+snakejob.*
