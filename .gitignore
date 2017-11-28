@@ -1,4 +1,6 @@
 /gtf_data
+/bed_data
+/cpat_data
 personal_info.py
 *~
 __pycache__/
