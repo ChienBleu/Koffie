@@ -29,13 +29,16 @@ rule fasta_from_bed:
     fastaFromBed -fi {input.fa} -bed {input.bed} -fo {output}
     """
 
-rule download_whole_genome:
-    output: FASTA_DATA_DIRECTORY + "/whole_genome/{species}.fa"
-    params: mm10 = FASTA_DATA_DIRECTORY + "/whole_genome/mus_musculus.fa",
-            hg38 = FASTA_DATA_DIRECTORY + "/whole_genome/homo_sapiens.fa",
+rule download_hg38_genome:
+    output: FASTA_DATA_DIRECTORY + "/whole_genome/homo_sapiens.fa"
     shell: """
-    wget http://hgdownload.soe.ucsc.edu/goldenPath/mm10/bigZips/chromFa.tar.gz -O {params.mm10}
-    wget http://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/hg38.chromFa.tar.gz -O {params.hg38}
+    for i in $(seq 1 22) X Y ;do  curl http://hgdownload.soe.ucsc.edu/goldenPath/hg38/chromosomes/chr$i.fa.gz | gunzip -c >> {output}; done
+    """
+
+rule download_mm10_genome:
+    output: FASTA_DATA_DIRECTORY + "/whole_genome/mus_musculus.fa"
+    shell: """
+    for i in $(seq 1 19) X Y ;do  curl http://hgdownload.soe.ucsc.edu/goldenPath/mm10/chromosomes/chr$i.fa.gz | gunzip -c >> {output}; done
     """
 
 rule slop_bed:
