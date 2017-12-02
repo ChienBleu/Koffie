@@ -2,6 +2,7 @@
 /bed_data
 /cpat_data
 /fasta_data
+/web_logo
 personal_info.py
 *~
 __pycache__/

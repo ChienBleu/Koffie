@@ -12,6 +12,7 @@ GTF_DATA_DIRECTORY = os.path.join(WDIR, "gtf_data")
 CPAT_DATA_DIRECTORY = os.path.join(WDIR, "cpat_data")
 BED_DATA_DIRECTORY = os.path.join(WDIR, "bed_data")
 FASTA_DATA_DIRECTORY = os.path.join(WDIR, "fasta_data")
+WEBLOGO_DIRECTORY = os.path.join(WDIR, "web_logo")
 
 SPECIES = ["homo_sapiens", "mus_musculus"]
 OTHERS_SPECIES = ["hg38", "mm10"]
@@ -19,7 +20,14 @@ BIOTYPES = ["lincRNA", "protein_coding", "unprocessed_pseudogene"]
 BIOTYPES_OTHERS = ["protein_coding", "unprocessed_pseudogene"]
 
 rule final:
-    input: expand(FASTA_DATA_DIRECTORY + "/{species}-{biotypes}.fa", species = SPECIES, biotypes = BIOTYPES)
+    input: expand(WEBLOGO_DIRECTORY + "/{species}-{biotypes}.pdf", species = SPECIES, biotypes = BIOTYPES)
+
+rule weblogo:
+    input: FASTA_DATA_DIRECTORY + "/{species}-{biotypes}.fa"
+    output: WEBLOGO_DIRECTORY + "/{species}-{biotypes}.pdf"
+    shell: """
+    weblogo -f {input} -o {output} -F pdf
+    """
 
 rule fasta_from_bed:
     input: bed = BED_DATA_DIRECTORY + "/{species}-{biotypes}.bed",
