@@ -11,6 +11,7 @@ CPAT_ACTIVATE = "source " + ENVS_PATH + "cpat/bin/activate cpat"
 GTF_DATA_DIRECTORY = os.path.join(WDIR, "gtf_data")
 CPAT_DATA_DIRECTORY = os.path.join(WDIR, "cpat_data")
 BED_DATA_DIRECTORY = os.path.join(WDIR, "bed_data")
+FASTA_DATA_DIRECTORY = os.path.join(WDIR, "fasta_data")
 
 SPECIES = ["homo_sapiens", "mus_musculus"]
 OTHERS_SPECIES = ["hg38", "mm10"]
@@ -18,7 +19,24 @@ BIOTYPES = ["lincRNA", "protein_coding", "unprocessed_pseudogene"]
 BIOTYPES_OTHERS = ["protein_coding", "unprocessed_pseudogene"]
 
 rule final:
-    input: expand(BED_DATA_DIRECTORY + "/{species}-{biotypes}.bed", species = SPECIES, biotypes = BIOTYPES)
+    input: expand(FASTA_DATA_DIRECTORY + "/{species}-{biotypes}.fa", species = SPECIES, biotypes = BIOTYPES)
+
+rule fasta_from_bed:
+    input: bed = BED_DATA_DIRECTORY + "/{species}-{biotypes}.bed",
+           fa = FASTA_DATA_DIRECTORY + "/whole_genome/{species}.fa"
+    output: FASTA_DATA_DIRECTORY + "/{species}-{biotypes}.fa"
+    shell: """
+    fastaFromBed -fi {input.fa} -bed {input.bed} -fo {output}
+    """
+
+rule download_whole_genome:
+    output: FASTA_DATA_DIRECTORY + "/whole_genome/{species}.fa"
+    params: mm10 = FASTA_DATA_DIRECTORY + "/whole_genome/mus_musculus.fa",
+            hg38 = FASTA_DATA_DIRECTORY + "/whole_genome/homo_sapiens.fa",
+    shell: """
+    wget http://hgdownload.soe.ucsc.edu/goldenPath/mm10/bigZips/chromFa.tar.gz -O {params.mm10}
+    wget http://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/hg38.chromFa.tar.gz -O {params.hg38}
+    """
 
 rule slop_bed:
     input: txt = BED_DATA_DIRECTORY + "/{species}.txt",
