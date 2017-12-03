@@ -1,8 +1,8 @@
-# Workflow de comparaison des sites d'épissages pour 3 classes de transcrits (LincRNA, protéines codantes et pseudogènes non procéssés) chez l'homme et chez la souris
+### Workflow de comparaison des sites d'épissages pour 3 classes de transcrits (LincRNA, protéines codantes et pseudogènes non procéssés) chez l'homme et chez la souris
 
 #### Compte rendu Analyses bioinformatiques des données à haut débit M2BBSG 2017/2018 Denis Puthier et Aitor Gonzalez
 
-## Zacharie Menetrier et Martin Mestdagh
+### Zacharie Menetrier et Martin Mestdagh
 
 #### Prérequis
 Workflow effectué sur Linux X86 64 bits
@@ -39,26 +39,46 @@ Le dossier contient les fichiers suivants :
 	-	install-tools.sh  
 
 ### A lire avant d'excécuter
+Pour pouvoir lancer le workflow, une version à jour de snakemake est nécessaire.
+Vous pouvez l'installer en vous référant à cette ligne de commande:
+
+```easy_install3 snakemake```
+
+ou
+
+```pip3 install snakemake```
+
 Pour pouvoir utiliser le workflow, il faut tout d'abord lancer le fichier *Makefile*.  
 Celui-ci se charge d'installer les outils nécessaires au lancement du workflow.s
 
-Tout d'abord pour pouvoir lancer le makefile il vous faut le fichier compréssé **gtftk.tar.gz** que vous pouvez trouvez à l'adresse suivante:  
-[gtftk.tar.gz](https://ametice.univ-amu.fr/pluginfile.php/1873547/mod_resource/content/2/gtftk.tar.gz).  
+Tout d'abord pour pouvoir lancer le makefile il vous faut le fichier compréssé [gtftk.tar.gz](https://ametice.univ-amu.fr/pluginfile.php/1873547/mod_resource/content/2/gtftk.tar.gz).
+
 Enregistrez ce fichier compréssé dans le dossier où se trouve le fichier *Makefile* (cela permettra d'installer le logiciel gtftk nécéssaire au workflow).  
-Pour les installations du fichier *Makefile* veuillez copier la ligne de commande suivante:  
-	`make install`  
-	**NB**: Pour cette installation il vous sera demandé de lire la license, de taper sur "ENTER" plusieurs fois pour ensuite confirmer (avec "yes" ou "y") d'avoir lu la license puis de suivre les instructions jusqu'à l'installation (veuillez choisir le même répertoire d'installation en tappant "ENTER" quand l'installation vous le demande).  
 
-Si miniconda est déjà installé sur votre machine vous pouvez lancer à la place la commande:  
-	`make install-tools` 
+Pour les installations du fichier *Makefile* veuillez copier la ligne de commande suivante:
 
-Maintenant veuillez activer l'environnement créé avec cette commande:  
-	`source activate gtftk`  
+###### Si miniconda est déjà installé sur votre machine vous pouvez passer cette ligne de commande.
 
-A présent vous avez installé tous les éléments nécéssaires à l'utilisation du workflow. Le workflow peut-être lancé de deux façons différentes:  
-	`snakemake`  
-**OU** avec cette dernière permettant d'utiliser plusieurs threads en même temps (conseillé):  
-	`snakemake -c 'qsub -V -q batch -l nodes=1:ppn={threads}' -j 10`  
+```make install```
+
+
+**NB**: Pour cette installation il vous sera demandé de lire la license, de taper sur "ENTER" plusieurs fois pour ensuite confirmer (avec "yes" ou "y") d'avoir lu la license puis de suivre les instructions jusqu'à l'installation (veuillez choisir le même répertoire d'installation en tappant "ENTER" quand l'installation vous le demande).  
+
+Si miniconda est déjà installé sur votre machine vous pouvez lancer à la place la commande:
+
+```make install-tools```
+
+Maintenant veuillez activer l'environnement créé avec cette commande:
+
+```source activate gtftk```
+
+A présent vous avez installé tous les éléments nécéssaires à l'utilisation du workflow. Le workflow peut-être lancé de deux façons différentes:
+
+```snakemake```
+
+**OU** avec cette dernière permettant d'utiliser plusieurs threads en même temps (conseillé):
+
+```snakemake -c 'qsub -V -q batch -l nodes=1:ppn={threads}' -j 10```  
 
 
 ### Conclusion
