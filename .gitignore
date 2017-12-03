@@ -1,10 +1,10 @@
-/gtf_data
-/bed_data
-/cpat_data
-/fasta_data
-/web_logo
+/inputs
 personal_info.py
 *~
 __pycache__/
 .snakemake
 snakejob.*
+Miniconda3-latest-Linux-x86_64.sh
+gtftk.tar.gz
+gtftk/
+
