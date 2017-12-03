@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Compte rendu ABD Mestdagh Ménétrier</title>
+</head>
+<style>
+@media print {
+  *,
+  *:before,
+  *:after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+
+html {
+  font-size: 12px;
+}
+
+@media screen and (min-width: 32rem) and (max-width: 48rem) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 48rem) {
+  html {
+    font-size: 16px;
+  }
+}
+
+body {
+  line-height: 1.85;
+}
+
+p,
+.splendor-p {
+  font-size: 1rem;
+  margin-bottom: 1.3rem;
+}
+
+h1,
+.splendor-h1,
+h2,
+.splendor-h2,
+h3,
+.splendor-h3,
+h4,
+.splendor-h4 {
+  margin: 1.414rem 0 .5rem;
+  font-weight: inherit;
+  line-height: 1.42;
+}
+
+h1,
+.splendor-h1 {
+  margin-top: 0;
+  font-size: 3.998rem;
+}
+
+h2,
+.splendor-h2 {
+  font-size: 2.827rem;
+}
+
+h3,
+.splendor-h3 {
+  font-size: 1.999rem;
+}
+
+h4,
+.splendor-h4 {
+  font-size: 1.414rem;
+}
+
+h5,
+.splendor-h5 {
+  font-size: 1.121rem;
+}
+
+h6,
+.splendor-h6 {
+  font-size: .88rem;
+}
+
+small,
+.splendor-small {
+  font-size: .707em;
+}
+
+/* https://github.com/mrmrs/fluidity */
+
+img,
+canvas,
+iframe,
+video,
+svg,
+select,
+textarea {
+  max-width: 100%;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Merriweather:300italic,300);
+
+html {
+  font-size: 18px;
+  max-width: 100%;
+}
+
+body {
+  color: #444;
+  font-family: 'Merriweather', Georgia, serif;
+  margin: 0;
+  max-width: 100%;
+}
+
+/* === A bit of a gross hack so we can have bleeding divs/blockquotes. */
+
+p,
+*:not(div):not(img):not(body):not(html):not(li):not(blockquote):not(p) {
+  margin: 1rem auto 1rem;
+  max-width: 36rem;
+  padding: .25rem;
+}
+
+div {
+  width: 100%;
+}
+
+div img {
+  width: 100%;
+}
+
+blockquote p {
+  font-size: 1.5rem;
+  font-style: italic;
+  margin: 1rem auto 1rem;
+  max-width: 48rem;
+}
+
+li {
+  margin-left: 2rem;
+}
+
+/* Counteract the specificity of the gross *:not() chain. */
+
+h1 {
+  padding: 4rem 0 !important;
+}
+
+/*  === End gross hack */
+
+p {
+  color: #555;
+  height: auto;
+  line-height: 1.45;
+}
+
+pre,
+code {
+  font-family: Menlo, Monaco, "Courier New", monospace;
+}
+
+pre {
+  background-color: #fafafa;
+  font-size: .8rem;
+  overflow-x: scroll;
+  padding: 1.125em;
+}
+
+a,
+a:visited {
+  color: #3498db;
+}
+
+a:hover,
+a:focus,
+a:active {
+  color: #2980b9;
+}
+</style>
+<body>
+<h3 id="workflow-de-comparaison-des-sites-dépissages-pour-3-classes-de-transcrits-lincrna-protéines-codantes-et-pseudogènes-non-procéssés-chez-lhomme-et-chez-la-souris">Workflow de comparaison des sites d’épissages pour 3 classes de transcrits (LincRNA, protéines codantes et pseudogènes non procéssés) chez l’homme et chez la souris</h1>
+
+
+
+<h4 id="compte-rendu-analyses-bioinformatiques-des-données-à-haut-débit-m2bbsg-20172018-denis-puthier-et-aitor-gonzalez">Compte rendu Analyses bioinformatiques des données à haut débit M2BBSG 2017/2018 Denis Puthier et Aitor Gonzalez</h4>
+
+
+
+<h3 id="zacharie-menetrier-et-martin-mestdagh">Zacharie Menetrier et Martin Mestdagh</h2>
+
+
+
+<h4 id="prérequis">Prérequis</h4>
+
+<p>Workflow effectué sur Linux X86 64 bits</p>
+
+
+
+<h3 id="contexte">Contexte</h3>
+
+<p>D. Puthier et A. Gonzalez travaillent en collaboration avec F. Lopez sur le développement d’un programme permettant de manipuler des fichiers GTF (Gene transfer format). Le format GTF correspond à un fichier tabulé qui contient des informations concernant des éléments génomiques (souvent des gènes, transcrits et leurs exons).</p>
+
+
+
+<h3 id="objectif-du-workflow">Objectif du workflow</h3>
+
+<p>Son objectif est de comparer les sites d’épissages de 3 classes de transcrits: <br>
+    -   Gènes codants (protein_coding) <br>
+    -   LincRNA (LincRNA) <br>
+    -   Pseudogènes non procéssés (unprocessed_pseudogene)  </p>
+
+<p>Le workflow va effectuer plusieurs manipulations sur les fichiers de format gtf tels que le retrait du chromosome mitochondrial, la sélection des classes de transcrits avec au moins 2 exons,(la classe de transcrits LincRNA a un traitement spécifique: séléction des transcrits de taille supérieur à 200 nucléotides puis choix des transcrits ayant un potentiel codant inférieur à O,2) pour l’obtention des sites d’épissages de ces derniers. Puis de récupérer un fichier format fasta pour obtenir un logo de ces sites. <br>
+Il permet alors de pouvoir comparer des logos pour analyser les sites d’épissages des classes de transcrits. <br>
+Le workflow obtient les sites d’épissages de deux organismes l’homme et la souris (hg38 release 90, mm10 release 90).  </p>
+
+
+
+<h3 id="réalisation">Réalisation</h3>
+
+<p>Le workflow a été réalisé sur les sessions personnels du serveur pedagogix du TAGC, par <em>Zacharie Ménétrier</em> et <em>Martin Mestdagh</em> durant l’unité d’enseignement Analyses bioinformatiques des données à haut débit enseigné par <em>Denis Puthier</em> et <em>Aitor Gonzalez</em> pendant l’année scolaire 2017/2018. <br>
+Les logiciels utilisés sont: <br>
+- gtftk permettant de manipuler les fichiers de données gtf. <br>
+- cpat pour le calcul des potentiels codants des transcrits de la classe LincRNA <br>
+- bedTools pour l’élongation des séquences obtenus et la récupération des fichiers en format fasta. <br>
+- Weblogo va permettre d’obtenir les logos de ces sites.</p>
+
+<p>Le dossier contient les fichiers suivants : <br>
+    -   Makefile <br>
+    -   README.md <br>
+    -   Snakefile <br>
+    -   install-tools.sh  </p>
+
+
+
+<h3 id="a-lire-avant-dexcécuter">A lire avant d’excécuter</h3>
+
+<p>Pour pouvoir utiliser le workflow, il faut tout d’abord lancer le fichier <em>Makefile</em>. <br>
+Celui-ci se charge d’installer les outils nécessaires au lancement du workflow.s</p>
+
+<p>Tout d’abord pour pouvoir lancer le makefile il vous faut le fichier compréssé <strong>gtftk.tar.gz</strong> que vous pouvez trouvez à l’adresse suivante: <br>
+<a href="https://ametice.univ-amu.fr/pluginfile.php/1873547/mod_resource/content/2/gtftk.tar.gz">gtftk.tar.gz</a>. <br>
+Enregistrez ce fichier compréssé dans le dossier où se trouve le fichier <em>Makefile</em> (cela permettra d’installer le logiciel gtftk nécéssaire au workflow). <br>
+Pour les installations du fichier <em>Makefile</em> veuillez copier la ligne de commande suivante: <br>
+    <code>make install</code> <br>
+    <strong>NB</strong>: Pour cette installation il vous sera demandé de lire la license, de taper sur “ENTER” plusieurs fois pour ensuite confirmer (avec “yes” ou “y”) d’avoir lu la license puis de suivre les instructions jusqu’à l’installation (veuillez choisir le même répertoire d’installation en tappant “ENTER” quand l’installation vous le demande).  </p>
+
+<p>Si miniconda est déjà installé sur votre machine vous pouvez lancer à la place la commande: <br>
+    <code>make install-tools</code> </p>
+
+<p>Maintenant veuillez activer l’environnement créé avec cette commande: <br>
+    <code>source activate gtftk</code>  </p>
+
+<p>A présent vous avez installé tous les éléments nécéssaires à l’utilisation du workflow. Le workflow peut-être lancé de deux façons différentes: <br>
+    <code>snakemake</code> <br>
+<strong>OU</strong> avec cette dernière permettant d’utiliser plusieurs threads en même temps (conseillé): <br>
+    <code>snakemake -c 'qsub -V -q batch -l nodes=1:ppn={threads}' -j 10</code>  </p>
+
+
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>Les logo nécéssaires à la conclusion sont situés dans /data/logo/ triés par classes au format pdf. <br>
+Au regard des sites d’épissages obtenus pour chaque classes des deux espèces nous pouvons voir une forte ressemblance entre-eux mais aussi entre les espèces. <br>
+A quoi servent ces sites d’épissages? <br>
+l’épissage est un processus complexe produisant l’ARN messager nécéssite la reconnaissance des exons, l’excision des introns puis l’union des exons pour former un transcrit mature. Cette reconnaissance est assurée par des séquences consensus en cis (<strong>les sites d’épissages</strong>). Nous pouvons dire que ces sites d’épissages se conforment à une séquences consensus. <br>
+En effet il est reconnu que des altérations de ces sites vont altérer la fonction de ces sites et donc altérer l’épissage.  </p>
+
+<p>Pourquoi ces sites ont des séquences consensus? <br>
+Il est bien établi que presque tous les sites d’épissage se conforment à des séquences consensus. Ces séquences consensus comprennent des dinucléotides presque invariants à chaque extrémité de l’intron, GT à l’extrémité 5 ‘de l’intron et AG à l’extrémité 3’ de l’intron. <br>
+Les séquences consensus du site d’épissage pour la classe majeure d’introns dans le pré-ARNm se conforment généralement aux séquences consensus suivantes: <br>
+3 ‘sites d’épissage: CAG | G <br>
+Sites d’épissage 5 ‘: MAG | GTRAGT où M est A ou C et R est A ou G <br>
+(Wu et Krainer 1999, Thanaraj et Clark 2001).  </p>
+
+<p>Mais que sont ces 3 classes de transcrits? <br>
+Les 3 classes de transcrits sont les gènes codants, les pseudogènes non procéssés et les LincRNA. Pour cela revoyons les définitions de pseudogène non procéssé et de LincRNA: <br>
+    -   Un pseudogène non procéssé correspond à un gène possédant encore ses introns issu d’une duplication génique (processus commun et important dans l’évolution des génomes). <br>
+    -   Les LincRNA sont de longs ARN non codant intergéniques c’est-à-dire des transcrits d’ARN de grandes tailles. Beaucoup de ces transcrits sont codés par l’ARN polymérase II et sont épissés puis poly-adénylés. le terme “intergenique” se réfère à l’identification de ces transcrits à partir de régions du génome qui ne contiennent pas de gènes codant pour une protéine. Ces LincRNA faisaient partis de “l’ADN poubelle” de nos génomes alors que grâce aux nouvelles techniques et études minutieuses nous pouvons dire aujourd’hui que ces ARN codent clairement les transcrits d’ARN et ils contiennent également des ARN associés au promoteur ou au promoteur proches du gènes. <br>
+Ces trois classes des transcrits de protéines codants, de pseudogènes ayant des introns et des long ARN “non codant”.  </p>
+
+<p><strong>Pour conclure,</strong> nous pouvons émettre l’hypothèse suivante: que ce soit des transcrits de protéines codantes, de pseudogènes ayant des introns ou de LincRNA; la séquence des épissages sites de ces trois classes est similaire (consensus) chez l’homme comme chez la souris car cette similarité est nécéssaire pour la bonne réalisation de l’épissage.  </p>
+
+
+
+<h6 id="citations">citations</h6>
+
+<blockquote>
+  <p>Ne vend pas la peau de l’ours avant d’avoir les logos <br>
+   <em>Zacharie</em>  </p>
+</blockquote>
+</body>
+</html>
