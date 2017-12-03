@@ -1,10 +1,8 @@
-# Snakefile de comparaison des splicing sites de 3 classes de transcirts (LincRNA, protéines codantes et pseudogènes non procéssés) 
+# Snakefile de comparaison des splicing sites de 3 classes de transcirts (LincRNA, protéines codantes et pseudogènes non procéssés)
 # Réalisé par Zacharie Ménétrier et Martin MESTDAGH 02/12/2017
 ##  pour lancer le workflow: snakemake Snakefile
 
 from personal_info import WDIR
-
-import subprocess
 
 workdir: WDIR
 
@@ -112,7 +110,7 @@ rule cut_cpat:
     cut -f 1,5 {input} > {output}
     """
 
-# Règle de calcul du potentiel codant 
+# Règle de calcul du potentiel codant
 rule cpat:
     input: fa = DATA_DIRECTORY + "/coding_pot_inputs/{species}90_tx_seq.fa.gz",
            tsv = DATA_DIRECTORY + "/coding_pot_inputs/{species}_Hexamer.tsv",
@@ -123,7 +121,7 @@ rule cpat:
     shell:"""
     cpat.py -g {input.fa} -o {output} -x {input.tsv} -d {input.RData}
     """
-    
+
 # Règle de téléchargement des hexamer.tsv et logitModel.RData pour calculer le potentiel codant
 rule donwload_for_cpat:
     output: fa = DATA_DIRECTORY + "/coding_pot_inputs/{species}90_tx_seq.fa.gz",
