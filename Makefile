@@ -7,7 +7,7 @@ install-conda:
 	pwd >> personal_info.py
 
 install-tools:
-	tar xvfz gtftk.tar.gz
-	cd gtftk; conda env create -n gtftk -f conda/env.yaml
-	./install-gtftk.sh
+	#tar xvfz gtftk.tar.gz
+	#cd gtftk; conda env create -n gtftk -f conda/env.yaml
+	./install-tools.sh
 	
