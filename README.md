@@ -43,26 +43,26 @@ Tout d'abord pour pouvoir lancer le makefile il vous faut le fichier compréssé
 https://ametice.univ-amu.fr/mod/resource/view.php?id=773969.  
 Enregistrez ce fichier compréssé dans le dossier où se trouve le fichier Makefile (cela permettera d'installer le logiciel gtftk nécéssaire au workflow).  
 Pour lancer le fichier Makefile veuillez copier la ligne de commande suivante:  
-	make install-conda  
+	`make install-conda`  
 	**NB**: Pour cette installation il vous sera demandé de lire la license, de taper sur "ENTER" plusieurs fois pour ensuite confirmer (avec "yes" ou "y") d'avoir lu la license puis de suivre les instructions jusqu'à l'installation.  
 
 Une fois cette installation terminé vous devez installé les outils nécéssaires avec:  
-	make install-tools  
+	`make install-tools`  
 
 Maintenant veuillez activer l'environnement créé avec cette commande:  
-	source activate gtftk  
+	`source activate gtftk`  
 
 A présent vous avez installé tous les éléments nécéssaires à l'utilisation du workflow. Le workflow peut-être lancé de deux façons différentes:  
-	- snakemake Snakefile  
-OU avec cette dernière permettant d'utiliser plusieurs threads en même temps (conseillé):  
-	snakemake -c 'qsub -V -q batch -l nodes=1:ppn={threads}' -j 10  
+	`snakemake Snakefile`  
+**OU** avec cette dernière permettant d'utiliser plusieurs threads en même temps (conseillé):  
+	`snakemake -c 'qsub -V -q batch -l nodes=1:ppn={threads}' -j 10`  
 
 
 ### Conclusion
 Les logo nécéssaires à la conclusion sont situés dans /data/logo/
 3 dossiers correspondant aux 3 classes étudiés.
 Vous pouvez ouvrir chaque fichier avec la commande:  
-	xdg-open *nomdufichier*  
+	`xdg-open *nomdufichier*`  
 
 Au regard des splicings sites obtenus pour chaque classes des deux espèces nous pouvons voir une forte ressemblance entre-eux mais aussi entre les espèces.  
 En effet l'épissage est un processus complexe produisant l'ARN messager nécéssite la reconnaissance des exons, l'excision des introns puis l'union des exons pour former un transcrit mature. Cette reconnaissance est assurée par des séquences consensus en cis. Nous pouvons dire que ces splicing sites (sites d'épissages) se conforment à une séquences consensus.  
@@ -75,7 +75,8 @@ Sites d'épissage 5 ': MAG | GTRAGT où M est A ou C et R est A ou G
 (Wu et Krainer 1999, Thanaraj et Clark 2001).  
 
 Les 3 classes de transcrits sont les gènes codants, les pseudogènes non procéssés et les LincRNA. Pour cela revoyons les définitions de pseudogène non procéssé et de LincRNA:  
-- Un pseudogène non procéssé correspond à un gène possédant encore ses introns issu d'une duplication génique (processus commun et important dans l'évolution des génomes).  
-- Les LincRNA sont de longs ARN non codant intergéniques c'est-à-dire des transcrits d'ARN de grandes tailles. Beaucoup de ces transcrits sont codés par l'ARN polymérase II et sont épissés puis poly-adénylés. le terme "intergenique" se réfère à l'identification de ces transcrits à partir de régions du génome qui ne contiennent pas de gènes codant pour une protéine. Ces LincRNA faisaient partis de "l'ADN poubelle" de nos génomes alors que grâce aux nouvelles techniques et études minutieuses nous pouvons dire aujourd'hui que ces ARN codent clairement les transcrits d'ARN et ils contiennent également des ARN associés au promoteur ou au promoteur proches du gènes.
+	- Un pseudogène non procéssé correspond à un gène possédant encore ses introns issu d'une duplication génique (processus commun et important dans l'évolution des génomes).  
+	- Les LincRNA sont de longs ARN non codant intergéniques c'est-à-dire des transcrits d'ARN de grandes tailles. Beaucoup de ces transcrits sont codés par l'ARN polymérase II et sont épissés puis poly-adénylés. le terme "intergenique" se réfère à l'identification de ces transcrits à partir de régions du génome qui ne contiennent pas de gènes codant pour une protéine. Ces LincRNA faisaient partis de "l'ADN poubelle" de nos génomes alors que grâce aux nouvelles techniques et études minutieuses nous pouvons dire aujourd'hui que ces ARN codent clairement les transcrits d'ARN et ils contiennent également des ARN associés au promoteur ou au promoteur proches du gènes.
 Ces trois classes des transcrits de protéines codants, de pseudogènes ayant des introns et des long ARN "non codant".  
+
 Pour conclure, nous pouvons émettre l'hypothèse suivante: que ce soit des transcrits de protéines codantes, de pseudogènes ayant des introns ou de LincRNA; la séquence des splicing sites de ces trois classes est similaire (consensus) chez l'homme comme chez la souris car cette similarité est nécéssaire pour la bonne réalisation de l'épissage.  
