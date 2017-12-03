@@ -5,7 +5,7 @@
 ## Zacharie Menetrier and Martin Mestdagh - 02/12/2017
 
 #### Prérequis
-Linux X81 64 bits
+Linux X86 64 bits
 
 ### Contexte
   
@@ -82,5 +82,7 @@ Ces trois classes des transcrits de protéines codants, de pseudogènes ayant de
 Pour conclure, nous pouvons émettre l'hypothèse suivante: que ce soit des transcrits de protéines codantes, de pseudogènes ayant des introns ou de LincRNA; la séquence des splicing sites de ces trois classes est similaire (consensus) chez l'homme comme chez la souris car cette similarité est nécéssaire pour la bonne réalisation de l'épissage.  
 
 ###### citations
-Ne vends pas la peau de l'ours avant d'avoir les logos _Zacharie_  
-l'input c'est l'entrée de la sortie _Martin_
+>Ne vends pas la peau de l'ours avant d'avoir les logos  
+ _Zacharie_  
+>l'input c'est l'entrée de la sortie mais la rule final n'a pas d'output  
+ _Martin_  
