@@ -7,12 +7,12 @@
 #### Prérequis
 Linux X81 64 bits
 
-###Contexte
+### Contexte
   
 D. Puthier et A. Gonzalez travaillent en collaboration avec F. Lopez sur le développement d’un programme permettant de manipuler des fichiers GTF (Gene transfer format). Le format GTF correspond à un fichier tabulé qui contient des informations concernant des éléments génomiques (souvent des gènes, transcripts et leurs exons).
   
 
-###Objectif du workflow
+### Objectif du workflow
   
 Son objectif est de comparer les splicing sites de 3 classes de transcrits:  
 	Gènes codants (protein_coding)  
@@ -53,10 +53,10 @@ OU avec cette dernière permettant d'utiliser plusieurs threads en même temps (
 	snakemake -c 'qsub -V -q batch -l nodes=1:ppn={threads}' -j 10  
 
 
-###Conclusion
+### Conclusion
 	Les logo nécéssaires à la conclusion sont situés dans /data/logo/...	 	3 dossiers correspondant aux 3 classes étudiés.
 Vous pouvez ouvrir chaque fichier avec la commande:  
-	xdg-open <nomdufichier>  
+	xdg-open nomdufichier  
 
 Au regard des splicings sites obtenus pour chaque classes des deux espèces nous pouvons voir une forte ressemblance entre-eux mais aussi entre les espèces.  
 En effet l'épissage est un processus complexe produisant l'ARN messager nécéssite la reconnaissance des exons, l'excision des introns puis l'union des exons pour former un transcrit mature. Cette reconnaissance est assurée par des séquences consensus en cis. Nous pouvons dire que ces splicing sites (sites d'épissages) se conforment à une séquences consensus.  
