@@ -1,6 +1,6 @@
 install-conda:
-	#wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
-	#bash Miniconda3-latest-Linux-x86_64.sh
+	wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+	bash Miniconda3-latest-Linux-x86_64.sh
 	##
 	echo -n 'ENVS_PATH = ' > personal_info.py
 	echo -n '"' >> personal_info.py
