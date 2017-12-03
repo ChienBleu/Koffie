@@ -40,7 +40,7 @@ Il est constitué des éléments a installer nécéssaire à l'utilisation du wo
 	- téléchargement des fichiers nécéssaires aux différentes étapes du workflow (informations chromosomiques, génomes, etc)  
 	
 Tout d'abord pour pouvoir lancer le makefile il vous faut le fichier compréssé **gtftk.tar.gz** que vous pouvez trouvez à l'adresse suivante:  
-https://ametice.univ-amu.fr/mod/resource/view.php?id=773969.  
+[Lien de téléchargement gtftk.tar.gz](https://ametice.univ-amu.fr/mod/resource/view.php?id=773969).  
 Enregistrez ce fichier compréssé dans le dossier où se trouve le fichier Makefile (cela permettera d'installer le logiciel gtftk nécéssaire au workflow).  
 Pour lancer le fichier Makefile veuillez copier la ligne de commande suivante:  
 	`make install-conda`  
